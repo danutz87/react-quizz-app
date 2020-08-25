@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './data';
+import Popup from './Popup';
 
 class Main extends Component {
   constructor(props) {
@@ -18,6 +19,11 @@ class Main extends Component {
     this.handleIncreaseScore = this.handleIncreaseScore.bind(this);
   }
 
+  componentWillMount() {
+    const { nr } = this.state;
+    this.pushData(nr);
+  }
+
   pushData(nr) {
     this.setState({
       question: data[nr].question,
@@ -27,13 +33,8 @@ class Main extends Component {
     });
   }
 
-  componentWillMount() {
-    const { nr } = this.state;
-    this.pushData(nr);
-  }
-
   nextQuestion() {
-    let { nr, total, score } = this.state;
+    const { nr, total, score } = this.state;
 
     if (nr === total) {
       this.setState({
@@ -75,7 +76,7 @@ class Main extends Component {
 
     return (
       <div className="container">
-        <Popup style={{ display: displayPopup }} score={score} total={total} startQuiz={this.handleStartQuiz}/>
+        <Popup style={{ display: displayPopup }} score={score} total={total} startQuiz={this.handleStartQuiz} />
         <div className="row">
           <div className="col-lg-10 col-lg-offset-1">
             <div id="question">
