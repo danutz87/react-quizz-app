@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './data';
 
 class Main extends Component {
   constructor(props) {
