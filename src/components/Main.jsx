@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import './data';
+import data from './data';
 import Popup from './Popup';
+import Answers from './Answers';
 
 class Main extends Component {
   constructor(props) {
